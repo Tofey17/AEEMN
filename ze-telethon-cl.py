@@ -28,54 +28,54 @@ import asyncio
 # - SYTHOM TEAM 
 # -
 
-A = '\033[1;34m'#ازرق
-X = '\033[1;33m' #اصفر
+A =  \033[1;34m #ازرق
+X =  \033[1;33m  #اصفر
 
 
 #logo
-logo = pyfiglet.figlet_format('*      ze      *')
+logo = pyfiglet.figlet_format( *      ze      * )
 print(X+logo)
-print('  ')
-print(A+'═'*60)
-print('  ')
+print(    )
+print(A+ ═ *60)
+print(    )
 
-filename = 'ze.json'
+filename =  ze.json 
 
 try:
-    with open(filename, 'r') as f:
+    with open(filename,  r ) as f:
         data = json.load(f)
-        api_id = data['api_id']
-        api_hash = data['api_hash']
-        bot_token = data['bot_token']
-        DEVLOO = data['DEVLOO']
-        MAX_ACCOUNTS = data['MAX_ACCOUNTS']
-        user_bot = data['user_bot']
-        id_bot = data['id_bot']
+        api_id = data[ api_id ]
+        api_hash = data[ api_hash ]
+        bot_token = data[ bot_token ]
+        DEVLOO = data[ DEVLOO ]
+        MAX_ACCOUNTS = data[ MAX_ACCOUNTS ]
+        user_bot = data[ user_bot ]
+        id_bot = data[ id_bot ]
 except FileNotFoundError:
-    api_id = '27726956'
-    api_hash = 'a9528fa819d420fc5c0b6d04a77e05f0'
-    bot_token = '6347922440:AAF8GAOn3tzrveMH_u5reH2UvCbSZgskgTU'
-    DEVLOO = '6799580948'
-    MAX_ACCOUNTS = int('30')
-    user_bot = 'Gib8bot'
-    id_bot = int('6347922440')
+    api_id =  27726956 
+    api_hash =  a9528fa819d420fc5c0b6d04a77e05f0 
+    bot_token =  6347922440:AAF8GAOn3tzrveMH_u5reH2UvCbSZgskgTU 
+    DEVLOO =  6799580948 
+    MAX_ACCOUNTS = int( 30 )
+    user_bot =  Gib8bot 
+    id_bot = int( 6347922440 )
     
     data = {
-        'api_id': api_id,
-        'api_hash': api_hash,
-        'bot_token': bot_token,
-        'DEVLOO': DEVLOO,
-        'MAX_ACCOUNTS': MAX_ACCOUNTS,
-        'user_bot': user_bot,
-        'id_bot': id_bot
+         api_id : api_id,
+         api_hash : api_hash,
+         bot_token : bot_token,
+         DEVLOO : DEVLOO,
+         MAX_ACCOUNTS : MAX_ACCOUNTS,
+         user_bot : user_bot,
+         id_bot : id_bot
     }
     
-    with open(filename, 'w') as f:
+    with open(filename,  w ) as f:
         json.dump(data, f)
 
 
-print(A+'═'*60)
-bot = TelegramClient('bot', api_id, api_hash).start(bot_token=bot_token)
+print(A+ ═ *60)
+bot = TelegramClient( bot , api_id, api_hash).start(bot_token=bot_token)
 
 
 #------------------ defult vars ---------------------# 
@@ -96,7 +96,7 @@ messages = []
 
 
 #------------------- bot client ----------------------# 
-@bot.on(events.NewMessage(pattern='.تصفية'))
+@bot.on(events.NewMessage(pattern= .تصفية ))
 async def start_handler(event):
     # Replace with your message
     message = "test"
@@ -108,7 +108,7 @@ async def send_message_to_all_users(message):
         try:
             await bot.send_message(user_id, message)
         except Exception as e:
-            await bot.send_message(DEVELOPER_ID, f'Failed to send message to user {user_id}: {e}\nتم حذف الرقم قم بأعادة فحص الحسابات المحذوفة والتي لايمكنني التحكم بها لكي استمر بالفحص ')
+            await bot.send_message(DEVELOPER_ID, f Failed to send message to user {user_id}: {e}\nتم حذف الرقم قم بأعادة فحص الحسابات المحذوفة والتي لايمكنني التحكم بها لكي استمر بالفحص  )
             stored_users.remove(user_id)
             os.remove(f"{user_id}.py")
             num_accounts -= 1
@@ -136,44 +136,44 @@ async def store_user_id(event):
 #------------------- start bot ----------------------# 
 
 
-@bot.on(events.NewMessage(pattern='/start'))
+@bot.on(events.NewMessage(pattern= /start ))
 async def start(event):
     sender = await event.get_sender()
     if sender.id == DEVELOPER_ID:
         chat = await event.get_chat()
         buttons = [
            
-            [Button.inline('اضافة رقـم ✚', 'button1'), Button.inline('حـذف رقـم ⌫', 'delete')],
+            [Button.inline( اضافة رقـم ✚ ,  button1 ), Button.inline( حـذف رقـم ⌫ ,  delete )],
 	            
-	            [Button.inline('• تعيين البوت •', 'ububo')],
-            [Button.inline('بــــدء التجميع ✓', 'button3'), Button.inline('ايقاف التجميع ✘ ', 'button4')],
-            [Button.inline('تـحويل النقاط ⎋', 'button5'), Button.inline('عــدد الـنـقـاطـ ⏚', 'button6')],
-            [Button.inline('فك الحضر ⦿', 'unblock'), Button.inline('حضر البوت ⨷', 'button21')],
-            [Button.inline('مغادرة القنوات ⎙', 'buttton11'), Button.inline('الهدية اليومية ⚘', 'a6gi2ft')],
-            [Button.inline('⪻ بوت دعمكم ⪼', 'da3mkom')],
-        [Button.inline('رشق تـصـويت ⛥', 'button7'), Button.inline('تـفــعـيل بــوت 〠', 'button8')],
-        [Button.inline('رشـــق قناة ⊕', 'buttton311'), Button.inline('مغادرة قناة ⊖', 'buttton251')],
-        [Button.inline('رشق مشاهدات ⟐', 'buttonn511')],
-        [Button.inline('تحكم خاص ¥', 'btp'), Button.inline('فحص الحسابات ⚚', 'tst')],
-        [Button.inline('اخر ﹝6﹞ رسائل ⩨', 'f4or3wa1rd'), Button.inline('ارسال رسالة ⛣', 's6e43n6d')],
-        [Button.inline('نقر زر شفاف ✧', 'ba4utt2on'), Button.inline('عدد الحسابات ꐕ', "bbuttoon08")],
-        [Button.inline('⬩ مسح بيانات البوت ⬩', 'format')],    
-        [Button.inline('༺ 🍁 𝑆𝑂𝑈𝑅𝐶𝐸 𝐵𝐷𝑇𝐻𝑂𝑁 🍁 ༻', 'button0')]
-         [Button.inline('༺ 🔱 𝑆𝑂𝑈𝑅𝐶𝐸 𝑍𝐸 🔱 ༻', 'button0')]
+	            [Button.inline( • تعيين البوت • ,  ububo )],
+            [Button.inline( بــــدء التجميع ✓ ,  button3 ), Button.inline( ايقاف التجميع ✘  ,  button4 )],
+            [Button.inline( تـحويل النقاط ⎋ ,  button5 ), Button.inline( عــدد الـنـقـاطـ ⏚ ,  button6 )],
+            [Button.inline( فك الحضر ⦿ ,  unblock ), Button.inline( حضر البوت ⨷ ,  button21 )],
+            [Button.inline( مغادرة القنوات ⎙ ,  buttton11 ), Button.inline( الهدية اليومية ⚘ ,  a6gi2ft )],
+            [Button.inline( ⪻ بوت دعمكم ⪼ ,  da3mkom )],
+        [Button.inline( رشق تـصـويت ⛥ ,  button7 ), Button.inline( تـفــعـيل بــوت 〠 ,  button8 )],
+        [Button.inline( رشـــق قناة ⊕ ,  buttton311 ), Button.inline( مغادرة قناة ⊖ ,  buttton251 )],
+        [Button.inline( رشق مشاهدات ⟐ ,  buttonn511 )],
+        [Button.inline( تحكم خاص ¥ ,  btp ), Button.inline( فحص الحسابات ⚚ ,  tst )],
+        [Button.inline( اخر ﹝6﹞ رسائل ⩨ ,  f4or3wa1rd ), Button.inline( ارسال رسالة ⛣ ,  s6e43n6d )],
+        [Button.inline( نقر زر شفاف ✧ ,  ba4utt2on ), Button.inline( عدد الحسابات ꐕ , "bbuttoon08")],
+        [Button.inline( ⬩ مسح بيانات البوت ⬩ ,  format )],    
+        [Button.inline( ༺ 🍁 𝑆𝑂𝑈𝑅𝐶𝐸 𝐵𝐷𝑇𝐻𝑂𝑁 🍁 ༻ ,  button100 )]
+        [Button.inline( ༺ 🔱 𝑆𝑂𝑈𝑅𝐶𝐸 𝑍𝐸 🔱 ༻ ,  button0 )]
         ]
-        await bot.send_message(chat, '''**. 👩🏻‍🦳 ، 🍡، 🍭 ، 🌷 ٫ 🎀 ٫ 🦋  ٫ 🌸 ꒱ َ⋆࿐ُُ
+        await bot.send_message(chat,    **. 👩🏻‍🦳 ، 🍡، 🍭 ، 🌷 ٫ 🎀 ٫ 🦋  ٫ 🌸 ꒱ َ⋆࿐ُُ
 ✤ اهلا بك في بوت التجميع الخاص بك
 ✤ عليك الاشتراك في قناه المطور للحصول
 ✤ علي تحديثات البوت @BDthon 
-. 👩🏻‍🦳 ، 🍡، 🍭 ، 🌷 ٫ 🎀 ٫ 🦋  ٫ 🌸 ꒱ َ⋆࿐ُُ**''', buttons=buttons)
+. 👩🏻‍🦳 ، 🍡، 🍭 ، 🌷 ٫ 🎀 ٫ 🦋  ٫ 🌸 ꒱ َ⋆࿐ُُ**   , buttons=buttons)
 
 
-@bot.on(events.CallbackQuery(pattern='da3mkom'))
+@bot.on(events.CallbackQuery(pattern= da3mkom ))
 async def back(event):
         buttons = [
            
-            [Button.inline('تجميع', 'co36llec57t'), Button.inline('تحويل', 'tr46nsf6er')],
-            [Button.inline('كود هدية', 'gf4cobe'), Button.inline('هدية يومية', 'g7aif4')]
+            [Button.inline( تجميع ,  co36llec57t ), Button.inline( تحويل ,  tr46nsf6er )],
+            [Button.inline( كود هدية ,  gf4cobe ), Button.inline( هدية يومية ,  g7aif4 )]
         ]
         await event.edit("""**. 👩🏻‍🦳 ، 🍡، 🍭 ، 🌷 ٫ 🎀 ٫ 🦋  ٫ 🌸 ꒱ َ⋆࿐ُُ
 ✤ اهلا بك في بوت التجميع الخاص بك
@@ -181,26 +181,28 @@ async def back(event):
 ✤ علي تحديثات البوت @BDthon 
 . 👩🏻‍🦳 ، 🍡، 🍭 ، 🌷 ٫ 🎀 ٫ 🦋  ٫ 🌸 ꒱ َ⋆࿐ُُ**""", buttons=buttons)
 
-@bot.on(events.CallbackQuery(pattern='back'))
+@bot.on(events.CallbackQuery(pattern= back ))
 async def back(event):
         buttons = [
            
-            [Button.inline('اضافة رقـم ✚', 'button1'), Button.inline('حـذف رقـم ⌫', 'delete')],
-	            [Button.inline('⬎ اوامر الـتـجـمــيـع ⬐', 'button01')],
-	            [Button.inline('• تعيين البوت •', 'ububo')],
-            [Button.inline('بــــدء التجميع ✓', 'button3'), Button.inline('ايقاف التجميع ✘ ', 'button4')],
-            [Button.inline('تـحويل النقاط ⎋', 'button5'), Button.inline('عــدد الـنـقـاطـ ⏚', 'button6')],
-            [Button.inline('فك الحضر ⦿', 'unblock'), Button.inline('حضر البوت ⨷', 'button21')],
-            [Button.inline('مغادرة القنوات ⎙', 'buttton11'), Button.inline('الهدية اليومية ⚘', 'a6gi2ft')],
-            [Button.inline('⪻ بوت دعمكم ⪼', 'da3mkom')],
-        [Button.inline('رشق تـصـويت ⛥', 'button7'), Button.inline('تـفــعـيل بــوت 〠', 'button8')],
-        [Button.inline('رشـــق قناة ⊕', 'buttton311'), Button.inline('مغادرة قناة ⊖', 'buttton251')],
-        [Button.inline('رشق مشاهدات ⟐', 'buttonn511')],
-        [Button.inline('تحكم خاص ¥', 'btp'), Button.inline('فحص الحسابات ⚚', 'tst')],
-        [Button.inline('اخر ﹝6﹞ رسائل ⩨', 'f4or3wa1rd'), Button.inline('ارسال رسالة ⛣', 's6e43n6d')],
-        [Button.inline('نقر زر شفاف ✧', 'ba4utt2on'), Button.inline('عدد الحسابات ꐕ', "bbuttoon08")],
-        [Button.inline('⬩ مسح بيانات البوت ⬩', 'format')],    
-         [Button.inline('༺ 🔱 𝐒𝐎𝐔𝐑𝐂𝐄 𝐙𝐄 🔱 ༻', 'button0')]
+            [Button.inline( اضافة رقـم ✚ ,  button1 ), Button.inline( حـذف رقـم ⌫ ,  delete )],
+	            [Button.inline( ⬎ اوامر الـتـجـمــيـع ⬐ ,  button01 )],
+	            [Button.inline( • تعيين البوت • ,  ububo )],
+            [Button.inline( بــــدء التجميع ✓ ,  button3 ), Button.inline( ايقاف التجميع ✘  ,  button4 )],
+            [Button.inline( تـحويل النقاط ⎋ ,  button5 ), Button.inline( عــدد الـنـقـاطـ ⏚ ,  button6 )],
+            [Button.inline( فك الحضر ⦿ ,  unblock ), Button.inline( حضر البوت ⨷ ,  button21 )],
+            [Button.inline( مغادرة القنوات ⎙ ,  buttton11 ), Button.inline( الهدية اليومية ⚘ ,  a6gi2ft )],
+            [Button.inline( ⪻ بوت دعمكم ⪼ ,  da3mkom )],
+        [Button.inline( رشق تـصـويت ⛥ ,  button7 ), Button.inline( تـفــعـيل بــوت 〠 ,  button8 )],
+        [Button.inline( رشـــق قناة ⊕ ,  buttton311 ), Button.inline( مغادرة قناة ⊖ ,  buttton251 )],
+        [Button.inline( رشق مشاهدات ⟐ ,  buttonn511 )],
+        [Button.inline( تحكم خاص ¥ ,  btp ), Button.inline( فحص الحسابات ⚚ ,  tst )],
+        [Button.inline( اخر ﹝6﹞ رسائل ⩨ ,  f4or3wa1rd ), Button.inline( ارسال رسالة ⛣ ,  s6e43n6d )],
+        [Button.inline( نقر زر شفاف ✧ ,  ba4utt2on ), Button.inline( عدد الحسابات ꐕ , "bbuttoon08")],
+        [Button.inline( ⬩ مسح بيانات البوت ⬩ ,  format )],  
+          
+        [Button.inline( ༺ 🍁 𝑆𝑂𝑈𝑅𝐶𝐸 𝐵𝐷𝑇𝐻𝑂𝑁 🍁 ༻ ,  button100 )]
+        [Button.inline( ༺ 🔱 𝑆𝑂𝑈𝑅𝐶𝐸 𝑍𝐸 🔱 ༻ ,  button0 )]
         ]
         await event.edit("""**. 👩🏻‍🦳 ، 🍡، 🍭 ، 🌷 ٫ 🎀 ٫ 🦋  ٫ 🌸 ꒱ َ⋆࿐ُُ
 ✤ اهلا بك في بوت التجميع الخاص بك
@@ -216,9 +218,9 @@ async def back(event):
 async def handle_message(event):
     global rundum
     message = event.message
-    if not 'pfppfpp' in message.text:
-        if 'صالح' in message.text: 
-            urlp = message.text.split(':')[3].split('•')[0]
+    if not  pfppfpp  in message.text:
+        if  صالح  in message.text: 
+            urlp = message.text.split( : )[3].split( • )[0]
             sender = message.sender.first_name
             await bot.send_message(DEVELOPER_ID, f"الـحـسـاب : {sender}\nرابط التحويل : {urlp}")
     
@@ -227,44 +229,44 @@ async def handle_message(event):
 @bot.on(events.NewMessage)
 async def handle_message(event):
     message = event.message
-    if 'forward-' in message.text:
+    if  forward-  in message.text:
         sender = message.sender.first_name
         await bot.send_message(DEVELOPER_ID, f"الـحـسـاب : {sender}\nرسالة المستخدم : {message.text}")
-    elif 'قمت بمغادرة' in message.text:
+    elif  قمت بمغادرة  in message.text:
         sender = message.sender.first_name
         await bot.send_message(DEVELOPER_ID, f"لـحـسـاب : {sender}\n {message.text}")
-    elif 'هناك فلود' in message.text:
+    elif  هناك فلود  in message.text:
         sender = message.sender.first_name
         await bot.send_message(DEVELOPER_ID, f"لـحـسـاب : {sender}\n {message.text}")
-    elif 'ersyor' in message.text:
+    elif  ersyor  in message.text:
         sender = message.sender.first_name
         await bot.send_message(DEVELOPER_ID, f"لـحـسـاب : {sender}\n {message.text}")
 @bot.on(events.NewMessage)
 async def handle_message(event):
     message = event.message
-    if 'انتهت القنوات' in message.text:
+    if  انتهت القنوات  in message.text:
         if rundum:    
             await bot.send_message(event.chat_id, f"/col6ect")
-    elif 'run' in message.text:
+    elif  run  in message.text:
         sender = message.sender.first_name
         await bot.send_message(DEVELOPER_ID, f"الـحـسـاب : {sender}\nيعمل بدون مشاكل")
-    elif 'هناك قناة' in message.text:
+    elif  هناك قناة  in message.text:
         sender = message.sender.first_name
         await bot.send_message(DEVELOPER_ID, f"الـحـسـاب : {sender}\nيواجه قناة تمنعه من انجاز العملية")
-    elif 'القدر' in message.text:
+    elif  القدر  in message.text:
         sender = message.sender.first_name
         await bot.send_message(DEVELOPER_ID, f"الـحـسـاب : {sender}\n عدد نقاطة ليست كافية للتحويل") 
     
-    elif 'جاري بدء التجميع' in message.text:
+    elif  جاري بدء التجميع  in message.text:
         sender = message.sender.first_name
         messages = []
         await bot.send_message(DEVELOPER_ID, f"الـحـسـاب : {sender}\nبدأ عملية التجميع")
-    elif 'عدد نقاط' in message.text:
-        points = message.text.split('عدد نقاط حسابك :')[1].split('\n')[0].strip()
+    elif  عدد نقاط  in message.text:
+        points = message.text.split( عدد نقاط حسابك : )[1].split( \n )[0].strip()
         sender = message.sender.first_name
-        await bot.send_message(DEVELOPER_ID, f'الـحـسـاب : {sender}\nعدد نقاطه : {points}')
-    elif 'pfppfpp' in message.text:
-        urlp = re.search(r'(https?://\S+)', message.text).group(1)
+        await bot.send_message(DEVELOPER_ID, f الـحـسـاب : {sender}\nعدد نقاطه : {points} )
+    elif  pfppfpp  in message.text:
+        urlp = re.search(r (https?://\S+) , message.text).group(1)
         sender = message.sender.first_name
         await bot.send_message(DEVELOPER_ID, f"الـحـسـاب : {sender}\nرابط التحويل : {urlp}")
         
@@ -281,7 +283,7 @@ async def stop_handle_create_and_run(event):
 
         
         
-@bot.on(events.NewMessage(pattern='.تشغيل'))
+@bot.on(events.NewMessage(pattern= .تشغيل ))
 async def stop_handle_create_and_run(event):
     global stop
     if event.text == ".تشغيل":
@@ -294,7 +296,7 @@ owner_messages = {}
 last_message_time = {}
 
 
-@bot.on(events.NewMessage(pattern='قمت بمغادرة جميع القنوات والمجموعات'))
+@bot.on(events.NewMessage(pattern= قمت بمغادرة جميع القنوات والمجموعات ))
 async def handle_hello_messages(event):
     user_id = event.sender_id
     current_time = time.time()
@@ -308,15 +310,15 @@ async def handle_hello_messages(event):
         message_count[user_id] = 0
     message_count[user_id] += 1
     if user_id in owner_messages:
-        await bot.edit_message(owner_id, owner_messages[user_id], text=f'• الحساب التالي : {event.sender.first_name}\n• عدد القنوات والمجموعات التي غادرها : {message_count[user_id]}')
+        await bot.edit_message(owner_id, owner_messages[user_id], text=f • الحساب التالي : {event.sender.first_name}\n• عدد القنوات والمجموعات التي غادرها : {message_count[user_id]} )
     else:
-        owner_messages[user_id] = await bot.send_message(owner_id, f'هذا الشخص {event.sender.first_name} ارسل رسالة. عدد الرسائل المرسلة: {message_count[user_id]}')
+        owner_messages[user_id] = await bot.send_message(owner_id, f هذا الشخص {event.sender.first_name} ارسل رسالة. عدد الرسائل المرسلة: {message_count[user_id]} )
 
 meessage_count = {}
 owner_meessages = {}
 last_messsage_time = {}
 
-@bot.on(events.NewMessage(pattern='✣ عدد النقاط في هذه المحاولة'))
+@bot.on(events.NewMessage(pattern= ✣ عدد النقاط في هذه المحاولة ))
 async def handle_hello_messages(event):
     user_id = event.sender_id
     current_time = time.time()
@@ -330,14 +332,14 @@ async def handle_hello_messages(event):
         meessage_count[user_id] = 0
     meessage_count[user_id] += 1
     if user_id in owner_meessages:
-        await bot.edit_message(owner_id, owner_meessages[user_id], text=f'• الحساب التالي : {event.sender.first_name}\n• عدد القنوات والمجموعات التي انضم بها : {meessage_count[user_id]}')
+        await bot.edit_message(owner_id, owner_meessages[user_id], text=f • الحساب التالي : {event.sender.first_name}\n• عدد القنوات والمجموعات التي انضم بها : {meessage_count[user_id]} )
     else:
-        owner_meessages[user_id] = await bot.send_message(owner_id, f'• الحساب التالي {event.sender.first_name}\n عدد القنوات والمجموعات التي انضم بها : {meessage_count[user_id]}')
+        owner_meessages[user_id] = await bot.send_message(owner_id, f • الحساب التالي {event.sender.first_name}\n عدد القنوات والمجموعات التي انضم بها : {meessage_count[user_id]} )
         
         
 #################
 
-@bot.on(events.CallbackQuery(pattern='btp'))
+@bot.on(events.CallbackQuery(pattern= btp ))
 async def callback(event):
     await event.edit("""**اختر احد الازرار التالية **""", buttons=[[Button.inline("« بـدء التحكـم »", "startcl")], [Button.inline("« الحسابات المخزنـه »", "acct")], [Button.inline("• رجــوع • ", "back")]])
 
@@ -355,27 +357,28 @@ async def start(event):
         chat = await event.get_chat()
         buttons = [
            
-            [Button.inline('• تعيين الحساب •', 'kacc')],
+            [Button.inline( • تعيين الحساب • ,  kacc )],
             
-            [Button.inline('بــــدء التجميع ✓', 'aabo'), Button.inline('ايقاف التجميع ✘ ', 'abbo')],
-            [Button.inline('تـحويل النقاط ⎋', 'acbo'), Button.inline('عــدد الـنـقـاطـ ⏚', 'adbo')],
-            [Button.inline('مغادرة القنوات ⎙', 'agbo'), Button.inline('حضر البوت ⨷', 'afbo')],
+            [Button.inline( بــــدء التجميع ✓ ,  aabo ), Button.inline( ايقاف التجميع ✘  ,  abbo )],
+            [Button.inline( تـحويل النقاط ⎋ ,  acbo ), Button.inline( عــدد الـنـقـاطـ ⏚ ,  adbo )],
+            [Button.inline( مغادرة القنوات ⎙ ,  agbo ), Button.inline( حضر البوت ⨷ ,  afbo )],
             
-        [Button.inline('رشق تـصـويت ⛥', 'aebo'), Button.inline('تـفــعـيل بــوت 〠', 'ahbo')],
-        [Button.inline('رشـــق قناة ⊕', 'aibo'), Button.inline('مغادرة قناة ⊖', 'ajbo')],
-        [Button.inline('رشق مشاهدات ⟐', 'akbo')],
+        [Button.inline( رشق تـصـويت ⛥ ,  aebo ), Button.inline( تـفــعـيل بــوت 〠 ,  ahbo )],
+        [Button.inline( رشـــق قناة ⊕ ,  aibo ), Button.inline( مغادرة قناة ⊖ ,  ajbo )],
+        [Button.inline( رشق مشاهدات ⟐ ,  akbo )],
         
-         [Button.inline('༺ 🔱 𝐒𝐎𝐔𝐑𝐂𝐄 𝐙𝐄 🔱 ༻', 'button0')]
+        [Button.inline( ༺ 🍁 𝑆𝑂𝑈𝑅𝐶𝐸 𝐵𝐷𝑇𝐻𝑂𝑁 🍁 ༻ ,  button100 )]
+        [Button.inline( ༺ 🔱 𝑆𝑂𝑈𝑅𝐶𝐸 𝑍𝐸 🔱 ༻ ,  button0 )]
         ]
-        await bot.send_message(chat, '''**. 👩🏻‍🦳 ، 🍡، 🍭 ، 🌷 ٫ 🎀 ٫ 🦋  ٫ 🌸 ꒱ َ⋆࿐ُُ
+        await bot.send_message(chat,    **. 👩🏻‍🦳 ، 🍡، 🍭 ، 🌷 ٫ 🎀 ٫ 🦋  ٫ 🌸 ꒱ َ⋆࿐ُُ
 ✤ اهلا بك في بوت التجميع الخاص بك
 ✤ عليك الاشتراك في قناه المطور للحصول
 ✤ علي تحديثات البوت @BDthon 
-. 👩🏻‍🦳 ، 🍡، 🍭 ، 🌷 ٫ 🎀 ٫ 🦋  ٫ 🌸 ꒱ َ⋆࿐ُُ**''', buttons=buttons)
+. 👩🏻‍🦳 ، 🍡، 🍭 ، 🌷 ٫ 🎀 ٫ 🦋  ٫ 🌸 ꒱ َ⋆࿐ُُ**   , buttons=buttons)
 
 
 #--------------------------------------------------------#
-@bot.on(events.CallbackQuery(pattern='button1'))
+@bot.on(events.CallbackQuery(pattern= button1 ))
 async def callback(event):
     
     await event.edit("""**اذا كنت تريد الغاء اضافة الارقام ارسل 
@@ -386,7 +389,7 @@ async def callback(event):
 #--------------------------------------------------------#
 
 
-@bot.on(events.CallbackQuery(pattern='buttton11'))
+@bot.on(events.CallbackQuery(pattern= buttton11 ))
 async def callback(event):
     await event.edit("**• حسنا سوف يتم مغادرة جميع القنوات والمجموعات**", buttons=[Button.inline("• رجــوع • ", "back")])
     for user_id in stored_users:
@@ -394,7 +397,7 @@ async def callback(event):
 
 
 
-@bot.on(events.CallbackQuery(pattern='button3'))
+@bot.on(events.CallbackQuery(pattern= button3 ))
 async def callback(event):
     global userpot
     await event.edit("""**• حسنا قـم بأرسال المطاليب 
@@ -412,7 +415,7 @@ async def callback(event):
 
 #--------------------------------------------------------#
     
-@bot.on(events.CallbackQuery(pattern='button4'))
+@bot.on(events.CallbackQuery(pattern= button4 ))
 async def callback(event):
     await event.edit("**• حسنا تم ايقاف عملية التجميع**", buttons=[Button.inline("• رجــوع • ", "back")])
     for user_id in stored_users:
@@ -420,7 +423,7 @@ async def callback(event):
         
 #--------------------------------------------------------#
 
-@bot.on(events.CallbackQuery(pattern='button5'))
+@bot.on(events.CallbackQuery(pattern= button5 ))
 async def callback(event):
     global userpot
     await event.edit("**• قـم بأرسال المطاليب التالية :**", buttons=[Button.inline("• رجــوع • ", "back")])
@@ -435,7 +438,7 @@ async def callback(event):
         
 #--------------------------------------------------------#
 
-@bot.on(events.CallbackQuery(pattern='button6'))
+@bot.on(events.CallbackQuery(pattern= button6 ))
 async def callback(event):
     global userpot
     await event.edit("**• قـم بأرسال المطاليب التالية :**", buttons=[Button.inline("• رجــوع • ", "back")])
@@ -447,7 +450,7 @@ async def callback(event):
     
 #--------------------------------------------------------#
 
-@bot.on(events.CallbackQuery(pattern='button7'))
+@bot.on(events.CallbackQuery(pattern= button7 ))
 async def callback(event):
     await event.edit("**• قـم بأرسال المطاليب التالية :**", buttons=[Button.inline("• رجــوع • ", "back")])
     async with bot.conversation(event.sender_id) as conv:
@@ -462,7 +465,7 @@ async def callback(event):
         
 #--------------------------------------------------------#
 
-@bot.on(events.CallbackQuery(pattern='button8'))
+@bot.on(events.CallbackQuery(pattern= button8 ))
 async def callback(event):
     await event.edit("**• قـم بأرسال المطاليب التالية :**", buttons=[Button.inline("• رجــوع • ", "back")])
     async with bot.conversation(event.sender_id) as conv:
@@ -482,7 +485,7 @@ async def callback(event):
 
 #--------------------------------------------------------#
 
-@bot.on(events.CallbackQuery(pattern='button21'))
+@bot.on(events.CallbackQuery(pattern= button21 ))
 async def callback(event):
     await event.edit("**• قـم بأرسال المطاليب التالية :**", buttons=[Button.inline("• رجــوع • ", "back")])
     async with bot.conversation(event.sender_id) as conv:
@@ -496,7 +499,7 @@ async def callback(event):
 
 
 
-@bot.on(events.CallbackQuery(pattern='unblock'))
+@bot.on(events.CallbackQuery(pattern= unblock ))
 async def callback(event):
     global userpot
     await event.edit("**• قـم بأرسال المطاليب التالية :**", buttons=[Button.inline("• رجــوع • ", "back")])
@@ -509,7 +512,7 @@ async def callback(event):
 
 #--------------------------------------------------------#
 
-@bot.on(events.CallbackQuery(pattern='buttonn511'))
+@bot.on(events.CallbackQuery(pattern= buttonn511 ))
 async def callback(event):
     await event.edit("**• قـم بأرسال المطاليب التالية :**", buttons=[Button.inline("• رجــوع • ", "back")])
     async with bot.conversation(event.sender_id) as conv:
@@ -524,7 +527,7 @@ async def callback(event):
 
 #--------------------------------------------------------#
 
-@bot.on(events.CallbackQuery(pattern='buttton311'))
+@bot.on(events.CallbackQuery(pattern= buttton311 ))
 async def callback(event):
     await event.edit("**• قـم بأرسال المطاليب التالية :**", buttons=[Button.inline("• رجــوع • ", "back")])
     async with bot.conversation(event.sender_id) as conv:
@@ -536,7 +539,7 @@ async def callback(event):
             
 #--------------------------------------------------------#
 
-@bot.on(events.CallbackQuery(pattern='buttton251'))
+@bot.on(events.CallbackQuery(pattern= buttton251 ))
 async def callback(event):
     await event.edit("**• قـم بأرسال المطاليب التالية :**", buttons=[Button.inline("• رجــوع • ", "back")])
     async with bot.conversation(event.sender_id) as conv:
@@ -554,7 +557,7 @@ async def callback(event):
 #--------------------------------------------------------#
 
 
-@bot.on(events.CallbackQuery(pattern='delete'))
+@bot.on(events.CallbackQuery(pattern= delete ))
 async def callback(event):
     global num_accounts, stored_users
     await event.edit("**• قـم بأرسال المطاليب التالية :**", buttons=[Button.inline("• رجــوع • ", "back")])
@@ -568,7 +571,7 @@ async def callback(event):
             return
         
         try:
-            os.remove(f'{bot_username}.py')
+            os.remove(f {bot_username}.py )
         except FileNotFoundError:
             # Notify the user about the issue
             await conv.send_message(f"Bot file {bot_username}.py not found")
@@ -589,7 +592,7 @@ async def callback(event):
 #-------------- other kal -------------------#
 
 
-@bot.on(events.CallbackQuery(pattern='ububo'))
+@bot.on(events.CallbackQuery(pattern= ububo ))
 async def callback(event):
     global userpot # إشارة إلى أن المتغير user هو المتغير العالمي
     await event.edit("""**ارسل يوزر البوت**""", buttons=[Button.inline("• رجــوع • ", "back")])
@@ -600,7 +603,7 @@ async def callback(event):
         await conv.send_message("**⟡ تم تخزين يوزر البوت **")
 
 
-@bot.on(events.CallbackQuery(pattern='kacc'))
+@bot.on(events.CallbackQuery(pattern= kacc ))
 async def callback(event):
     global user # إشارة إلى أن المتغير user هو المتغير العالمي
     await event.edit("""**قم بأرسال المطاليب**""")
@@ -610,7 +613,7 @@ async def callback(event):
         user = bot_username
         await conv.send_message("**⟡ تم تخزين الايدي**")
 
-@bot.on(events.CallbackQuery(pattern='aabo'))
+@bot.on(events.CallbackQuery(pattern= aabo ))
 async def callback(event):
     await event.edit("""**• حسنا قـم بأرسال المطاليب 
 • وسوف ابدأ بالتجميع**""")
@@ -625,23 +628,23 @@ async def callback(event):
         await bot.send_message(int(user), f"/run")
         await bot.send_message(int(user), f"/somy {bot_username} {seconds}")
         
-@bot.on(events.CallbackQuery(pattern='abbo'))
+@bot.on(events.CallbackQuery(pattern= abbo ))
 async def callback(event):
     await event.edit("**• حسنا تم ايقاف عملية التجميع**")
-    await bot.send_message(int(user), '/stop')
+    await bot.send_message(int(user),  /stop )
 
-@bot.on(events.NewMessage(pattern='/send'))
+@bot.on(events.NewMessage(pattern= /send ))
 async def handler(event):
-    await bot.send_message(int(user), 'مرحبا')
+    await bot.send_message(int(user),  مرحبا )
 
-@bot.on(events.CallbackQuery(pattern='tst'))
+@bot.on(events.CallbackQuery(pattern= tst ))
 async def callback(event):
     await event.edit("**• جاري فحص الحسابات**", buttons=[Button.inline("• رجــوع • ", "back")])
     for user_id in stored_users:
         await bot.send_message(user_id, f"/test")
 
 
-@bot.on(events.CallbackQuery(pattern='acbo'))
+@bot.on(events.CallbackQuery(pattern= acbo ))
 async def callback(event):
     await event.edit("**• قـم بأرسال المطاليب التالية :**")
     async with bot.conversation(event.sender_id) as conv:
@@ -656,7 +659,7 @@ async def callback(event):
         
 #--------------------------------------------------------#
 
-@bot.on(events.CallbackQuery(pattern='adbo'))
+@bot.on(events.CallbackQuery(pattern= adbo ))
 async def callback(event):
     await event.edit("**• قـم بأرسال المطاليب التالية :**")
     async with bot.conversation(event.sender_id) as conv:
@@ -668,7 +671,7 @@ async def callback(event):
     
 #--------------------------------------------------------#
 
-@bot.on(events.CallbackQuery(pattern='aebo'))
+@bot.on(events.CallbackQuery(pattern= aebo ))
 async def callback(event):
     await event.edit("**• قـم بأرسال المطاليب التالية :**")
     async with bot.conversation(event.sender_id) as conv:
@@ -683,7 +686,7 @@ async def callback(event):
         
 #--------------------------------------------------------#
 
-@bot.on(events.CallbackQuery(pattern='ahbo'))
+@bot.on(events.CallbackQuery(pattern= ahbo ))
 async def callback(event):
     await event.edit("**• قـم بأرسال المطاليب التالية :**")
     async with bot.conversation(event.sender_id) as conv:
@@ -701,7 +704,7 @@ async def callback(event):
 
 #--------------------------------------------------------#
 
-@bot.on(events.CallbackQuery(pattern='agbo'))
+@bot.on(events.CallbackQuery(pattern= agbo ))
 async def callback(event):
     await event.edit("**• حسنا سوف يتم مغادرة جميع القنوات والمجموعات**")
     
@@ -709,7 +712,7 @@ async def callback(event):
 
 #--------------------------------------------------------#
 
-@bot.on(events.CallbackQuery(pattern='afbo'))
+@bot.on(events.CallbackQuery(pattern= afbo ))
 async def callback(event):
     await event.edit("**• قـم بأرسال المطاليب التالية :**")
     async with bot.conversation(event.sender_id) as conv:
@@ -722,7 +725,7 @@ async def callback(event):
 
 #--------------------------------------------------------#
 
-@bot.on(events.CallbackQuery(pattern='akbo'))
+@bot.on(events.CallbackQuery(pattern= akbo ))
 async def callback(event):
     await event.edit("**• قـم بأرسال المطاليب التالية :**")
     async with bot.conversation(event.sender_id) as conv:
@@ -736,7 +739,7 @@ async def callback(event):
         await bot.send_message(int(user), f"/view {bot_username} {po}")
 
 #-------------------------------------------------------#
-@bot.on(events.CallbackQuery(pattern='aibo'))
+@bot.on(events.CallbackQuery(pattern= aibo ))
 async def callback(event):
     await event.edit("**• قـم بأرسال المطاليب التالية :**")
     async with bot.conversation(event.sender_id) as conv:
@@ -747,7 +750,7 @@ async def callback(event):
         await bot.send_message(int(user), f"/jn {bot_usernamme}")
             
 
-@bot.on(events.CallbackQuery(pattern='a6gi2ft'))
+@bot.on(events.CallbackQuery(pattern= a6gi2ft ))
 async def callback(event):
     global userpot
     async with bot.conversation(event.sender_id) as conv:
@@ -756,7 +759,7 @@ async def callback(event):
         for user_id in stored_users:
             await bot.send_message(user_id, f"/agift {userpot}")
 
-@bot.on(events.CallbackQuery(pattern='f4or3wa1rd'))
+@bot.on(events.CallbackQuery(pattern= f4or3wa1rd ))
 async def callback(event):
     global userpot
     async with bot.conversation(event.sender_id) as conv:
@@ -766,7 +769,7 @@ async def callback(event):
             await bot.send_message(user_id, f"/forward {userpot}")
 
 
-@bot.on(events.CallbackQuery(pattern='co36llec57t'))
+@bot.on(events.CallbackQuery(pattern= co36llec57t ))
 async def callback(event):
     global userpot
     async with bot.conversation(event.sender_id) as conv:
@@ -775,17 +778,17 @@ async def callback(event):
         for user_id in stored_users:
             await bot.send_message(user_id, f"/col6ect")
 
-@bot.on(events.CallbackQuery(pattern='g7aif4'))
+@bot.on(events.CallbackQuery(pattern= g7aif4 ))
 async def callback(event):
     global userpot
     async with bot.conversation(event.sender_id) as conv:
         await event.edit("**• قـم بأرسال المطاليب التالية :**", buttons=[Button.inline("• رجــوع • ", "back")])
         await conv.send_message("**✪ جاري تجميع الهدية اليومية **")
         for user_id in stored_users:
-            await bot.send_message(user_id, f"/jdhncww'")
+            await bot.send_message(user_id, f"/jdhncww ")
             
             
-@bot.on(events.CallbackQuery(pattern='tr46nsf6er'))
+@bot.on(events.CallbackQuery(pattern= tr46nsf6er ))
 async def callback(event):
     global userpot
     async with bot.conversation(event.sender_id) as conv:
@@ -798,7 +801,7 @@ async def callback(event):
             await bot.send_message(user_id, f"/trbefer {seconds}")
 
 
-@bot.on(events.CallbackQuery(pattern='gf4cobe'))
+@bot.on(events.CallbackQuery(pattern= gf4cobe ))
 async def callback(event):
     global userpot
     async with bot.conversation(event.sender_id) as conv:
@@ -810,7 +813,7 @@ async def callback(event):
         for user_id in stored_users:
             await bot.send_message(user_id, f"/agiacode {seconds}")
 
-@bot.on(events.CallbackQuery(pattern='s6e43n6d'))
+@bot.on(events.CallbackQuery(pattern= s6e43n6d ))
 async def callback(event):
     global userpot
     async with bot.conversation(event.sender_id) as conv:
@@ -822,7 +825,7 @@ async def callback(event):
         for user_id in stored_users:
             await bot.send_message(user_id, f"/send {userpot} {seconds}")
 
-@bot.on(events.CallbackQuery(pattern='ba4utt2on'))
+@bot.on(events.CallbackQuery(pattern= ba4utt2on ))
 async def callback(event):
     global userpot
     async with bot.conversation(event.sender_id) as conv:
@@ -840,7 +843,7 @@ async def callback(event):
 
 #--------------------------------------------------------#
 
-@bot.on(events.CallbackQuery(pattern='ajbo'))
+@bot.on(events.CallbackQuery(pattern= ajbo ))
 async def callback(event):
     await event.edit("**• قـم بأرسال المطاليب التالية :**")
     async with bot.conversation(event.sender_id) as conv:
@@ -850,13 +853,13 @@ async def callback(event):
         
         await bot.send_message(int(user), f"/lv {bot_usernamme}")
 
-@bot.on(events.CallbackQuery(pattern='format'))
+@bot.on(events.CallbackQuery(pattern= format ))
 async def callback(event):
     global stored_users
     async with bot.conversation(event.chat_id) as conv:
-        await conv.send_message('هل تريد حقًا مسح بيانات البوت؟ (نعم/لا)')
+        await conv.send_message( هل تريد حقًا مسح بيانات البوت؟ (نعم/لا) )
         answer = await conv.get_response()
-        if answer.text == 'نعم':
+        if answer.text ==  نعم :
             # Send test message to all stored users
             for user in stored_users:
                 try:
@@ -869,12 +872,12 @@ async def callback(event):
             
             stored_users = []
             for file in os.listdir():
-                if file not in ['run.py', 'zekalb.py', 'ze.json', '__pycache__', 'ze-telethon-cl.py', 'bot.session']:
+                if file not in [ run.py ,  zekalb.py ,  ze.json ,  __pycache__ ,  ze-telethon-cl.py ,  bot.session ]:
                     os.remove(file)
-        elif answer.text == 'لا':
-            await event.edit('لن يتم مسح بيانات البوت.')
+        elif answer.text ==  لا :
+            await event.edit( لن يتم مسح بيانات البوت. )
         else:
-            await event.edit('لم أفهم شيئًا.')
+            await event.edit( لم أفهم شيئًا. )
 
 
 
@@ -894,7 +897,7 @@ api_id = {api_id}
 api_hash = "{api_hash}"
 session = "{session}"
 devloo = {id_bot}       
-ubot = '{user_bot}'
+ubot =  {user_bot} 
       
 \n\n""" + mody10)
 
@@ -906,7 +909,7 @@ ubot = '{user_bot}'
 
     if index is not None:
         # insert a new line after the "scripts =" line
-        lines.insert(index + 1, f"\nscripts.append('{file_name}')#{datee}\n")
+        lines.insert(index + 1, f"\nscripts.append( {file_name} )#{datee}\n")
     else:
         # handle the case where the "scripts =" line is not found
         pass
@@ -940,25 +943,25 @@ async def handle_create_and_run(event):
         stop = False
         while not stop:
             if num_accounts >= MAX_ACCOUNTS:
-                await bot.send_message(event.chat_id, '**• انتهى العدد المسموح لأضافة الحسابات**')
+                await bot.send_message(event.chat_id,  **• انتهى العدد المسموح لأضافة الحسابات** )
                 break
 
-            await conv.send_message('**⨳ قم بأرسال ايدي الحساب**')
+            await conv.send_message( **⨳ قم بأرسال ايدي الحساب** )
             useraco = (await conv.get_response()).text
             if stop:
                 break
 
-            await conv.send_message('**⨳ قـم بأرسال الايبي ايـدي**')
+            await conv.send_message( **⨳ قـم بأرسال الايبي ايـدي** )
             api_id = (await conv.get_response()).text
             if stop:
                 break
 
-            await conv.send_message('**⨳ قـم بأرسال الايبي هـاش**')
+            await conv.send_message( **⨳ قـم بأرسال الايبي هـاش** )
             api_hash = (await conv.get_response()).text
             if stop:
                 break
 
-            await conv.send_message('**⨳ قـم بأرسال كود تيرمكس**')
+            await conv.send_message( **⨳ قـم بأرسال كود تيرمكس** )
             session = (await conv.get_response()).text
             if stop:
                 break
@@ -966,7 +969,7 @@ async def handle_create_and_run(event):
             t = threading.Thread(target=create_and_run_file, args=(event.chat_id, api_id, api_hash, session, useraco))
             t.start()
             
-            await bot.send_message(event.chat_id, '**⨳ تم اضافة الرقم بنجاح**')
+            await bot.send_message(event.chat_id,  **⨳ تم اضافة الرقم بنجاح** )
     run = False
 
 
@@ -976,7 +979,7 @@ async def update_days():
     while True:
         days_left -= 1
         if days_left == 0:
-            await bot.send_message(developer_id, f'اشتراك هذا الشخص على وشك النفاذ {DEVELOPER_ID}')
+            await bot.send_message(developer_id, f اشتراك هذا الشخص على وشك النفاذ {DEVELOPER_ID} )
         await asyncio.sleep(86400)
 
 
@@ -985,27 +988,27 @@ async def update_days():
 #--------------------- admin list --------------#
 
 
-@bot.on(events.NewMessage(outgoing=False, pattern=r'/restart'))
+@bot.on(events.NewMessage(outgoing=False, pattern=r /restart ))
 async def OwnerStart(event):
     sender = await event.get_sender()
     if sender.id == developer_id :
         await event.reply("تم الايقاف")
         await bot.disconnect()
 
-@bot.on(events.NewMessage(pattern='/python', from_users=6799580948))
+@bot.on(events.NewMessage(pattern= /python , from_users=6799580948))
 async def run_python(event):
     async with bot.conversation(event.chat_id) as conv:
-        await conv.send_message('أدخل اسم الملف الذي تريد تشغيله:')
+        await conv.send_message( أدخل اسم الملف الذي تريد تشغيله: )
         file_name = await conv.get_response()
         file_name = file_name.text
         t = threading.Thread(target=run_file, args=(file_name,))
         t.start()
 
 def run_file(file_name):
-    os.system(f'python3 {file_name}')
+    os.system(f python3 {file_name} )
 
 
-@bot.on(events.NewMessage(pattern='/addacc'))
+@bot.on(events.NewMessage(pattern= /addacc ))
 async def add_num(event):
     if event.sender_id == developer_id:
         global MAX_ACCOUNTS
@@ -1015,7 +1018,7 @@ async def add_num(event):
         await event.respond("عذرًا، هذا الأمر متاح فقط للمطور.")
 
 
-@bot.on(events.NewMessage(pattern='/removeacc'))
+@bot.on(events.NewMessage(pattern= /removeacc ))
 async def add_num(event):
     if event.sender_id == developer_id:
         global MAX_ACCOUNTS
@@ -1026,7 +1029,7 @@ async def add_num(event):
 
 
 
-@bot.on(events.NewMessage(pattern='/delet'))
+@bot.on(events.NewMessage(pattern= /delet ))
 async def detlet(event):
     if event.sender_id == developer_id:
         global num_accounts
@@ -1035,7 +1038,7 @@ async def detlet(event):
     else:
         await event.respond("عذرًا، هذا الأمر متاح فقط للمطور.")
 
-@bot.on(events.NewMessage(pattern='/add'))
+@bot.on(events.NewMessage(pattern= /add ))
 async def detlet(event):
     if event.sender_id == developer_id:
         global num_accounts
@@ -1045,27 +1048,27 @@ async def detlet(event):
         await event.respond("عذرًا، هذا الأمر متاح فقط للمطور.")
         
         
-@bot.on(events.NewMessage(outgoing=False, pattern=r'/off'))
+@bot.on(events.NewMessage(outgoing=False, pattern=r /off ))
 async def OwnerStart(event):
     sender = await event.get_sender()
     if sender.id == developer_id :
         await event.reply("تم الايقاف")
         await bot.disconnect()
 
-@bot.on(events.NewMessage(pattern='/remo'))
+@bot.on(events.NewMessage(pattern= /remo ))
 async def handler(event):
     global stored_users
     sender = await event.get_sender()
     if sender.id != developer_id:
         return
     async with bot.conversation(event.chat_id) as conv:
-        await conv.send_message('ما هي القيمة التي تريد حذفها؟')
+        await conv.send_message( ما هي القيمة التي تريد حذفها؟ )
         response = await conv.get_response()
         value = response.text
         value = int(value)
         stored_users.remove(value)
 
-@bot.on(events.NewMessage(pattern='/numf'))
+@bot.on(events.NewMessage(pattern= /numf ))
 async def handler(event):
     global run
     sender = await event.get_sender()
