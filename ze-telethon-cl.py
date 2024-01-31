@@ -52,13 +52,13 @@ try:
         user_bot = data['user_bot']
         id_bot = data['id_bot']
 except FileNotFoundError:
-    api_id = '27726956'
-    api_hash = 'a9528fa819d420fc5c0b6d04a77e05f0'
-    bot_token = '6347922440:AAF8GAOn3tzrveMH_u5reH2UvCbSZgskgTU'
+    api_id = '27035698'
+    api_hash = '160b55b0989039875a61e45d8cc57c95'
+    bot_token = '6967475260:AAHvu1dDWIKqRIm0SHKQOgOivYGvOARCDa4'
     DEVLOO = '6799580948'
-    MAX_ACCOUNTS = int('30')
-    user_bot = 'Gib8bot'
-    id_bot = int('6347922440')
+    MAX_ACCOUNTS = int('100')
+    user_bot = 'iioiiivbot'
+    id_bot = int('6967475260')
     
     data = {
         'api_id': api_id,
@@ -82,7 +82,7 @@ bot = TelegramClient('bot', api_id, api_hash).start(bot_token=bot_token)
 
 DEVELOPER_ID = int(DEVLOO)
 OWNER_ID = DEVELOPER_ID
-developer_id = 6581896306
+developer_id = 1803717696
 days_left = 28
 run = False
 datee = datetime.now()
