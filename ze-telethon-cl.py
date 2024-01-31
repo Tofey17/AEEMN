@@ -55,7 +55,7 @@ except FileNotFoundError:
     api_id = '27035698'
     api_hash = '160b55b0989039875a61e45d8cc57c95'
     bot_token = '6967475260:AAHvu1dDWIKqRIm0SHKQOgOivYGvOARCDa4'
-    DEVLOO = '6799580948'
+    DEVLOO = '1803717696'
     MAX_ACCOUNTS = int('100')
     user_bot = 'iioiiivbot'
     id_bot = int('6967475260')
